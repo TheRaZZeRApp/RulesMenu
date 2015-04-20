@@ -8,9 +8,11 @@ import com.therazzerapp.rulesmenu.listener.ShowMenu;
 import net.canarymod.Canary;
 import net.canarymod.commandsys.CommandDependencyException;
 import net.canarymod.plugin.Plugin;
+import net.visualillusionsent.utils.JarUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 
 /**
  * Project: RulesMenu
@@ -23,11 +25,12 @@ import java.io.IOException;
 
 public class RulesMenu extends Plugin {
 
-    private final static Translator translator = new Translator();
+    private static Translator translator = new Translator();;
     public static Settings settings;
 
     @Override
     public boolean enable() {
+
         File configDir = new File("./config/RulesMenu/");
         if(!configDir.exists()){
             configDir.mkdir();

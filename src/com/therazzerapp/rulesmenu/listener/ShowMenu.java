@@ -1,6 +1,5 @@
 package com.therazzerapp.rulesmenu.listener;
 
-
 import com.therazzerapp.rulesmenu.Menu;
 import com.therazzerapp.rulesmenu.RulesMenu;
 import net.canarymod.Canary;
@@ -9,7 +8,6 @@ import net.canarymod.hook.HookHandler;
 import net.canarymod.hook.player.ConnectionHook;
 import net.canarymod.plugin.PluginListener;
 import net.canarymod.tasks.ServerTask;
-
 
 /**
  * Project: RulesMenu
