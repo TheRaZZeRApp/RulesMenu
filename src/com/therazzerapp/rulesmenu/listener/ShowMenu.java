@@ -3,10 +3,12 @@ package com.therazzerapp.rulesmenu.listener;
 
 import com.therazzerapp.rulesmenu.Menu;
 import com.therazzerapp.rulesmenu.RulesMenu;
+import net.canarymod.Canary;
 import net.canarymod.api.GameMode;
 import net.canarymod.hook.HookHandler;
 import net.canarymod.hook.player.ConnectionHook;
 import net.canarymod.plugin.PluginListener;
+import net.canarymod.tasks.ServerTask;
 
 
 /**
@@ -21,7 +23,7 @@ import net.canarymod.plugin.PluginListener;
 public class ShowMenu implements PluginListener {
 
     @HookHandler
-    public void onConnect(ConnectionHook hook){
+    public void onConnect(final ConnectionHook hook){
         if(hook.getPlayer().hasPermission("rulesmenu.accepted")){
             return;
         }
@@ -38,7 +40,11 @@ public class ShowMenu implements PluginListener {
             ChatSilent.activate(hook.getPlayer());
         }
 
-        hook.getPlayer().sendChatComponent(new Menu().getMenu(hook.getPlayer()));
-
+        Canary.getServer().addSynchronousTask(new ServerTask(new RulesMenu(),20,false) {
+            @Override
+            public void run() {
+                hook.getPlayer().sendChatComponent(new Menu().getMenu(hook.getPlayer()));
+            }
+        });
     }
 }
