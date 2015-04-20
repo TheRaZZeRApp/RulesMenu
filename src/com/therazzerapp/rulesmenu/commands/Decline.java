@@ -31,6 +31,7 @@ public class Decline {
             player.kick(RulesMenu.getTranslator().localeTranslate("kickmessage",player.getLocale()));
         } else if (RulesMenu.settings.isBanOnDecline()){
             Canary.bans().issueBan(player,RulesMenu.getTranslator().localeTranslate("banmessage",player.getLocale()));
+            player.kick(RulesMenu.getTranslator().localeTranslate("kickmessage", player.getLocale()));
         }
 
     }
