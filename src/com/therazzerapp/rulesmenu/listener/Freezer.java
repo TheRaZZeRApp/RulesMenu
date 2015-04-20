@@ -1,7 +1,9 @@
 package com.therazzerapp.rulesmenu.listener;
 
 import net.canarymod.hook.HookHandler;
+import net.canarymod.hook.player.ItemDropHook;
 import net.canarymod.hook.player.PlayerMoveHook;
+import net.canarymod.hook.player.TeleportHook;
 import net.canarymod.plugin.PluginListener;
 
 /**
@@ -17,10 +19,15 @@ public class Freezer implements PluginListener{
 
     @HookHandler
     public void onMovement(PlayerMoveHook hook){
-
         if(!hook.getPlayer().hasPermission("rulesmenu.accepted")){
             hook.setCanceled();
         }
+    }
 
+    @HookHandler
+    public void onTeleport(TeleportHook hook){
+        if(!hook.getPlayer().hasPermission("rulesmenu.accepted")){
+            hook.setCanceled();
+        }
     }
 }

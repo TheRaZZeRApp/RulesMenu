@@ -26,7 +26,6 @@ public class Accept {
 
         if (player.hasPermission("rulesmenu.accepted")){
             player.message(RulesMenu.getTranslator().localeTranslate("error_alreadyaccepted",player.getLocale()));
-            return;
         } else {
 
             if(RulesMenu.settings.isMuted() && player.isMuted()){
