@@ -2,7 +2,6 @@ package com.therazzerapp.rulesmenu.commands;
 
 import com.therazzerapp.rulesmenu.RulesMenu;
 import com.therazzerapp.rulesmenu.listener.ChatSilent;
-import net.canarymod.Canary;
 import net.canarymod.api.GameMode;
 import net.canarymod.api.entity.living.humanoid.Player;
 import net.canarymod.chat.MessageReceiver;

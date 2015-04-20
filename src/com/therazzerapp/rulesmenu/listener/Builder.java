@@ -3,7 +3,6 @@ package com.therazzerapp.rulesmenu.listener;
 import net.canarymod.hook.HookHandler;
 import net.canarymod.hook.player.BlockDestroyHook;
 import net.canarymod.hook.player.BlockPlaceHook;
-import net.canarymod.hook.player.ItemDropHook;
 import net.canarymod.plugin.PluginListener;
 
 /**
