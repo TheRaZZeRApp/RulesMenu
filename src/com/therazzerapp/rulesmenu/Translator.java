@@ -13,6 +13,6 @@ import net.visualillusionsent.utils.LocaleHelper;
 
 public class Translator extends LocaleHelper {
     public Translator() {
-        super(true, "./pluginlangs/RulesMenu", "en_US");
+        super(true, "./lang/RulesMenu", "en_US");
     }
 }
