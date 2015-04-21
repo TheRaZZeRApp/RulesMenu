@@ -1,6 +1,7 @@
 package com.therazzerapp.rulesmenu.commands;
 
 import com.therazzerapp.rulesmenu.RulesMenu;
+import com.therazzerapp.rulesmenu.RulesMenuCommand;
 import com.therazzerapp.rulesmenu.hook.RulesAcceptHook;
 import com.therazzerapp.rulesmenu.listener.ChatSilent;
 import net.canarymod.api.GameMode;
@@ -16,7 +17,9 @@ import net.canarymod.chat.MessageReceiver;
  * E-Mail: rezzer101@googlemail.com
  */
 
-public class Accept {
+public class Accept implements RulesMenuCommand{
+
+    @Override
     public void run (MessageReceiver caller, String[] parameters){
         if (!(caller instanceof Player)){
             return;

@@ -1,6 +1,7 @@
 package com.therazzerapp.rulesmenu.commands;
 
 import com.therazzerapp.rulesmenu.RulesMenu;
+import com.therazzerapp.rulesmenu.RulesMenuCommand;
 import com.therazzerapp.rulesmenu.hook.RulesAcceptHook;
 import com.therazzerapp.rulesmenu.hook.RulesDeclineHook;
 import net.canarymod.Canary;
@@ -16,7 +17,9 @@ import net.canarymod.chat.MessageReceiver;
  * E-Mail: rezzer101@googlemail.com
  */
 
-public class Decline {
+public class Decline implements RulesMenuCommand {
+
+    @Override
     public void run (MessageReceiver caller, String[] parameters){
         if (!(caller instanceof Player)){
             return;

@@ -1,7 +1,6 @@
 package com.therazzerapp.rulesmenu;
 
-import com.therazzerapp.rulesmenu.commands.Accept;
-import com.therazzerapp.rulesmenu.commands.Decline;
+import com.therazzerapp.rulesmenu.commands.*;
 import net.canarymod.chat.MessageReceiver;
 import net.canarymod.commandsys.Command;
 import net.canarymod.commandsys.CommandListener;
@@ -17,6 +16,14 @@ import net.canarymod.commandsys.CommandListener;
 
 public class CommandList implements CommandListener{
 
+    static final RulesMenuCommand[] cmds = new RulesMenuCommand[3];
+
+    static {
+        cmds[0] = new Accept();
+        cmds[1] = new Decline();
+        cmds[2] = new com.therazzerapp.rulesmenu.commands.RulesMenu();
+    }
+
     @Command(aliases = {"rulesmenu"},
             description = "Accept the rules.",
             permissions = {""},
@@ -24,7 +31,7 @@ public class CommandList implements CommandListener{
             min = 1
     )
     public void commandRulesMenu(MessageReceiver caller, String[] args){
-
+        cmds[2].run(caller,args);
     }
     @Command(aliases = {"accept"},
             parent = "rulesmenu",
@@ -34,7 +41,7 @@ public class CommandList implements CommandListener{
             min = 1
     )
     public void commandAcceptRules(MessageReceiver caller, String[] args){
-        new Accept().run(caller,args);
+        cmds[0].run(caller, args);
     }
     @Command(aliases = {"decline"},
             parent = "rulesmenu",
@@ -44,7 +51,7 @@ public class CommandList implements CommandListener{
             min = 1
     )
     public void commandDeclineRules(MessageReceiver caller, String[] args){
-        new Decline().run(caller,args);
+        cmds[1].run(caller, args);
     }
 
 }
