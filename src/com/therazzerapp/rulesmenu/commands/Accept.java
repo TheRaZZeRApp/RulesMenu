@@ -43,9 +43,15 @@ public class Accept implements RulesMenuCommand{
                 ChatSilent.deactivate(player);
             }
 
-            player.message(RulesMenu.getTranslator().localeTranslate("rules_accepted",player.getLocale()));
+            player.message(RulesMenu.getTranslator().localeTranslate("rules_accepted", player.getLocale()));
             player.getPermissionProvider().addPermission("rulesmenu.accepted", true);
             player.getPermissionProvider().reload();
+
+            if(RulesMenu.settings.isTeleportToSpawn()){
+                player.teleportTo(player.getWorld().getSpawnLocation());
+            } else {
+                player.teleportTo(player.getSpawnPosition());
+            }
 
             new RulesAcceptHook(player).call();
         }

@@ -4,6 +4,7 @@ import net.canarymod.Canary;
 import net.canarymod.api.chat.ChatComponent;
 import net.canarymod.api.entity.living.humanoid.Player;
 import net.canarymod.api.factory.ChatComponentFactory;
+import net.canarymod.chat.ChatFormat;
 
 /**
  * Project: RulesMenu
@@ -23,14 +24,12 @@ public class Menu {
 
         ChatComponent cCRules = f.newChatComponent("");
 
-        int counter = 0;
-        boolean foundEnd = false;
 
-        do{
-            String ruleName = "rule_" + counter;
+        for(int i = 0; i != RulesMenu.settings.getMaxRules(); i++) {
+            String ruleName = "rule_" + i;
 
             if(!RulesMenu.getTranslator().localeTranslate(ruleName,player.getLocale()).equals("") && !RulesMenu.getTranslator().localeTranslate(ruleName,player.getLocale()).equals(ruleName)){
-                ChatComponent rule = f.newChatComponent(RulesMenu.getTranslator().localeTranslate(ruleName,player.getLocale()) + "\n");
+                ChatComponent rule = f.newChatComponent(ChatFormat.formatString(RulesMenu.getTranslator().localeTranslate(ruleName, player.getLocale()) + "\n","§"));
 
                 String ruleToolTip = RulesMenu.getTranslator().localeTranslate(ruleName + "_tooltip", player.getLocale());
                 if(!ruleToolTip.equals("") && !ruleToolTip.equals(ruleName + "_tooltip")){
@@ -39,13 +38,7 @@ public class Menu {
 
                 cCRules.appendSibling(rule);
             }
-
-            counter++;
-
-            if (counter == RulesMenu.settings.getMaxRules()){
-                foundEnd = true;
-            }
-        }while (!foundEnd);
+        }
 
         ChatComponent cCAccept = f.newChatComponent(RulesMenu.getTranslator().localeTranslate("accept",player.getLocale()));
         cCAccept.getChatStyle().setChatClickEvent(f.newClickEvent(f.getRunCommand(),"/rulesmenu accept"));

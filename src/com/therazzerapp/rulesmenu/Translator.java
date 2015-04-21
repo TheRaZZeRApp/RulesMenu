@@ -15,4 +15,8 @@ public class Translator extends LocaleHelper {
     public Translator() {
         super(true, "./lang/RulesMenu", "en_US");
     }
+
+    public Translator(String locale){
+        super(locale);
+    }
 }
