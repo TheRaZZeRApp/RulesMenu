@@ -23,9 +23,9 @@ public class ShowMenu implements PluginListener {
 
     @HookHandler
     public void onConnect(final ConnectionHook hook){
-        //if(hook.getPlayer().hasPermission("rulesmenu.acceptedd")){
-        //    return;
-        //}
+        if(hook.getPlayer().hasPermission("rulesmenu.accepted")){
+            return;
+        }
 
         if(RulesMenu.settings.isMuted()){
             hook.getPlayer().setMuted(true);
