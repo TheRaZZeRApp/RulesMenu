@@ -1,6 +1,7 @@
 package com.therazzerapp.rulesmenu.commands;
 
 import com.therazzerapp.rulesmenu.RulesMenu;
+import com.therazzerapp.rulesmenu.hook.RulesAcceptHook;
 import com.therazzerapp.rulesmenu.listener.ChatSilent;
 import net.canarymod.api.GameMode;
 import net.canarymod.api.entity.living.humanoid.Player;
@@ -40,8 +41,10 @@ public class Accept {
             }
 
             player.message(RulesMenu.getTranslator().localeTranslate("rules_accepted",player.getLocale()));
-            player.getPermissionProvider().addPermission("rulesmenu.accepted",true);
+            player.getPermissionProvider().addPermission("rulesmenu.accepted", true);
             player.getPermissionProvider().reload();
+
+            new RulesAcceptHook(player).call();
         }
     }
 }

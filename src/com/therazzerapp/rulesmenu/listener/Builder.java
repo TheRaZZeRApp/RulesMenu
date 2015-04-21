@@ -1,5 +1,7 @@
 package com.therazzerapp.rulesmenu.listener;
 
+import com.therazzerapp.rulesmenu.hook.RulesAcceptHook;
+import com.therazzerapp.rulesmenu.hook.RulesDeclineHook;
 import net.canarymod.hook.HookHandler;
 import net.canarymod.hook.player.BlockDestroyHook;
 import net.canarymod.hook.player.BlockPlaceHook;

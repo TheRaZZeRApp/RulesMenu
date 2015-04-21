@@ -1,6 +1,8 @@
 package com.therazzerapp.rulesmenu.commands;
 
 import com.therazzerapp.rulesmenu.RulesMenu;
+import com.therazzerapp.rulesmenu.hook.RulesAcceptHook;
+import com.therazzerapp.rulesmenu.hook.RulesDeclineHook;
 import net.canarymod.Canary;
 import net.canarymod.api.entity.living.humanoid.Player;
 import net.canarymod.chat.MessageReceiver;
@@ -29,10 +31,17 @@ public class Decline {
 
         if(RulesMenu.settings.isKickOnDecline()){
             player.kick(RulesMenu.getTranslator().localeTranslate("kickmessage",player.getLocale()));
+            new RulesDeclineHook(player,true).call();
+            return;
         } else if (RulesMenu.settings.isBanOnDecline()){
-            Canary.bans().issueBan(player,RulesMenu.getTranslator().localeTranslate("banmessage",player.getLocale()));
+            String reson = RulesMenu.getTranslator().localeTranslate("banmessage", player.getLocale());
+            Canary.bans().issueBan(player, reson);
             player.kick(RulesMenu.getTranslator().localeTranslate("kickmessage", player.getLocale()));
+            new RulesDeclineHook(player,true,reson).call();
+            return;
         }
+
+        new RulesDeclineHook(player).call();
 
     }
 }
