@@ -4,7 +4,6 @@ import com.therazzerapp.rulesmenu.Menu;
 import com.therazzerapp.rulesmenu.RulesMenu;
 import net.canarymod.Canary;
 import net.canarymod.api.GameMode;
-import net.canarymod.api.world.blocks.Block;
 import net.canarymod.hook.HookHandler;
 import net.canarymod.hook.player.ConnectionHook;
 import net.canarymod.plugin.PluginListener;
@@ -23,9 +22,9 @@ public class ShowMenu implements PluginListener {
 
     @HookHandler
     public void onConnect(final ConnectionHook hook){
-        //if(hook.getPlayer().hasPermission("rulesmenu.acceptedd")){
-        //    return;
-        //}
+        if(hook.getPlayer().hasPermission("rulesmenu.accepted")){
+            return;
+        }
 
         if(RulesMenu.settings.isMuted()){
             hook.getPlayer().setMuted(true);
