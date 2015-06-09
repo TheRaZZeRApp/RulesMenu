@@ -1,9 +1,8 @@
-package com.therazzerapp.rulesmenu.commands;
+package de.therazzerapp.rulesmenu.commands;
 
-import com.therazzerapp.rulesmenu.RulesMenu;
-import com.therazzerapp.rulesmenu.RulesMenuCommand;
-import com.therazzerapp.rulesmenu.hook.RulesAcceptHook;
-import com.therazzerapp.rulesmenu.listener.ChatSilent;
+import de.therazzerapp.rulesmenu.RulesMenuCommand;
+import de.therazzerapp.rulesmenu.hook.RulesAcceptHook;
+import de.therazzerapp.rulesmenu.listener.ChatSilent;
 import net.canarymod.api.GameMode;
 import net.canarymod.api.entity.living.humanoid.Player;
 import net.canarymod.chat.MessageReceiver;
@@ -17,7 +16,7 @@ import net.canarymod.chat.MessageReceiver;
  * E-Mail: rezzer101@googlemail.com
  */
 
-public class Accept implements RulesMenuCommand{
+public class Accept implements RulesMenuCommand {
 
     @Override
     public void run (MessageReceiver caller, String[] parameters){
@@ -28,22 +27,22 @@ public class Accept implements RulesMenuCommand{
         Player player = caller.asPlayer();
 
         if (player.hasPermission("rulesmenu.accepted")){
-            player.message(RulesMenu.getTranslator().localeTranslate("error_alreadyaccepted",player.getLocale()));
+            player.message(de.therazzerapp.rulesmenu.RulesMenu.getTranslator().localeTranslate("error_alreadyaccepted",player.getLocale()));
         } else {
 
-            if(RulesMenu.settings.isMuted() && player.isMuted()){
+            if(de.therazzerapp.rulesmenu.RulesMenu.settings.isMuted() && player.isMuted()){
                 player.setMuted(false);
             }
 
-            if(RulesMenu.settings.isSpectator() && player.getMode() == GameMode.SPECTATOR){
+            if(de.therazzerapp.rulesmenu.RulesMenu.settings.isSpectator() && player.getMode() == GameMode.SPECTATOR){
                 player.setMode(player.getWorld().getGameMode());
             }
 
-            if(RulesMenu.settings.isChatMuted() && ChatSilent.chatMap.containsKey(player)){
+            if(de.therazzerapp.rulesmenu.RulesMenu.settings.isChatMuted() && ChatSilent.chatMap.containsKey(player)){
                 ChatSilent.deactivate(player);
             }
 
-            player.message(RulesMenu.getTranslator().localeTranslate("rules_accepted",player.getLocale()));
+            player.message(de.therazzerapp.rulesmenu.RulesMenu.getTranslator().localeTranslate("rules_accepted",player.getLocale()));
             player.getPermissionProvider().addPermission("rulesmenu.accepted", true);
             player.getPermissionProvider().reload();
 

@@ -1,30 +1,30 @@
-package com.therazzerapp.rulesmenu.listener;
+package de.therazzerapp.rulesmenu.listener;
 
 import net.canarymod.hook.HookHandler;
-import net.canarymod.hook.player.PlayerMoveHook;
-import net.canarymod.hook.player.TeleportHook;
+import net.canarymod.hook.player.BlockDestroyHook;
+import net.canarymod.hook.player.BlockPlaceHook;
 import net.canarymod.plugin.PluginListener;
 
 /**
  * Project: RulesMenu
  * User: Pual
  * Date: 19/04/2015
- * Time: 02:19 PM
+ * Time: 02:41 PM
  * Package: com.therazzerapp.rulesmenu.listener
  * E-Mail: rezzer101@googlemail.com
  */
 
-public class Freezer implements PluginListener{
+public class Builder implements PluginListener {
 
     @HookHandler
-    public void onMovement(PlayerMoveHook hook){
+    public void onBlockPlacement(BlockPlaceHook hook){
         if(!hook.getPlayer().hasPermission("rulesmenu.accepted")){
             hook.setCanceled();
         }
     }
 
     @HookHandler
-    public void onTeleport(TeleportHook hook){
+    public void onBlockDestroy(BlockDestroyHook hook){
         if(!hook.getPlayer().hasPermission("rulesmenu.accepted")){
             hook.setCanceled();
         }

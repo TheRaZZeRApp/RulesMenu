@@ -1,6 +1,6 @@
-package com.therazzerapp.rulesmenu.commands;
+package de.therazzerapp.rulesmenu.commands;
 
-import com.therazzerapp.rulesmenu.RulesMenuCommand;
+import de.therazzerapp.rulesmenu.RulesMenuCommand;
 import net.canarymod.Canary;
 import net.canarymod.chat.MessageReceiver;
 

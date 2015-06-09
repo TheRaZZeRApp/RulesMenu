@@ -1,4 +1,4 @@
-package com.therazzerapp.rulesmenu;
+package de.therazzerapp.rulesmenu;
 
 import net.canarymod.chat.MessageReceiver;
 

@@ -1,4 +1,4 @@
-package com.therazzerapp.rulesmenu.hook;
+package de.therazzerapp.rulesmenu.hook;
 
 import net.canarymod.api.entity.living.humanoid.Player;
 import net.canarymod.hook.Hook;
@@ -16,9 +16,7 @@ public class RulesDeclineHook extends Hook {
     public RulesDeclineHook(Player player, boolean banned, String reason) {
         this.player = player;
         this.banned = banned;
-        if(!reason.equals("")){
-            this.reason = reason;
-        }
+        this.reason = !reason.equals("") ? reason : null;
     }
 
     public RulesDeclineHook(Player player, boolean kicked) {
@@ -31,8 +29,9 @@ public class RulesDeclineHook extends Hook {
     }
 
     /**
-     * Returns the player who has <i>declined</i> the rules.
+     * Returns the {@link Player} who has <i>declined</i> the rules.
      * @return player
+     *          The {@link Player}
      */
     public Player getPlayer() {
         return player;
@@ -50,7 +49,7 @@ public class RulesDeclineHook extends Hook {
 
     /**
      * Is <i>true</i> when <i>"kickOnDecline"</i> is set to true in the config file <br>
-     * and the player gets kicked.
+     * and the {@link Player} gets kicked.
      *
      * @return boolean
      */

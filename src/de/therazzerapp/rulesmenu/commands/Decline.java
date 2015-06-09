@@ -1,9 +1,7 @@
-package com.therazzerapp.rulesmenu.commands;
+package de.therazzerapp.rulesmenu.commands;
 
-import com.therazzerapp.rulesmenu.RulesMenu;
-import com.therazzerapp.rulesmenu.RulesMenuCommand;
-import com.therazzerapp.rulesmenu.hook.RulesAcceptHook;
-import com.therazzerapp.rulesmenu.hook.RulesDeclineHook;
+import de.therazzerapp.rulesmenu.RulesMenuCommand;
+import de.therazzerapp.rulesmenu.hook.RulesDeclineHook;
 import net.canarymod.Canary;
 import net.canarymod.api.entity.living.humanoid.Player;
 import net.canarymod.chat.MessageReceiver;
@@ -28,18 +26,18 @@ public class Decline implements RulesMenuCommand {
         Player player = caller.asPlayer();
 
         if (player.hasPermission("rulesmenu.accepted")){
-            player.message(RulesMenu.getTranslator().localeTranslate("error_alreadyaccepted",player.getLocale()));
+            player.message(de.therazzerapp.rulesmenu.RulesMenu.getTranslator().localeTranslate("error_alreadyaccepted",player.getLocale()));
             return;
         }
 
-        if(RulesMenu.settings.isKickOnDecline()){
-            player.kick(RulesMenu.getTranslator().localeTranslate("kickmessage",player.getLocale()));
+        if(de.therazzerapp.rulesmenu.RulesMenu.settings.isKickOnDecline()){
+            player.kick(de.therazzerapp.rulesmenu.RulesMenu.getTranslator().localeTranslate("kickmessage",player.getLocale()));
             new RulesDeclineHook(player,true).call();
             return;
-        } else if (RulesMenu.settings.isBanOnDecline()){
-            String reson = RulesMenu.getTranslator().localeTranslate("banmessage", player.getLocale());
+        } else if (de.therazzerapp.rulesmenu.RulesMenu.settings.isBanOnDecline()){
+            String reson = de.therazzerapp.rulesmenu.RulesMenu.getTranslator().localeTranslate("banmessage", player.getLocale());
             Canary.bans().issueBan(player, reson);
-            player.kick(RulesMenu.getTranslator().localeTranslate("kickmessage", player.getLocale()));
+            player.kick(de.therazzerapp.rulesmenu.RulesMenu.getTranslator().localeTranslate("kickmessage", player.getLocale()));
             new RulesDeclineHook(player,true,reson).call();
             return;
         }

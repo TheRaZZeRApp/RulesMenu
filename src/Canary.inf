@@ -1,4 +1,4 @@
-main-class = com.therazzerapp.rulesmenu.RulesMenu
-author = therazzerapp
-version = 0.1
+main-class = de.therazzerapp.rulesmenu.RulesMenu
+author = TheRaZZeRApp
+version = 1.0.1
 name = RulesMenu

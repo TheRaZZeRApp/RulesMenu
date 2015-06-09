@@ -1,18 +1,16 @@
-package com.therazzerapp.rulesmenu;
+package de.therazzerapp.rulesmenu;
 
-import com.therazzerapp.rulesmenu.config.Config;
-import com.therazzerapp.rulesmenu.listener.Builder;
-import com.therazzerapp.rulesmenu.listener.ChatSilent;
-import com.therazzerapp.rulesmenu.listener.Freezer;
-import com.therazzerapp.rulesmenu.listener.ShowMenu;
+import de.therazzerapp.rulesmenu.config.Config;
+import de.therazzerapp.rulesmenu.listener.Builder;
+import de.therazzerapp.rulesmenu.listener.ChatSilent;
+import de.therazzerapp.rulesmenu.listener.Freezer;
+import de.therazzerapp.rulesmenu.listener.ShowMenu;
 import net.canarymod.Canary;
 import net.canarymod.commandsys.CommandDependencyException;
 import net.canarymod.plugin.Plugin;
-import net.visualillusionsent.utils.JarUtils;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 
 /**
  * Project: RulesMenu

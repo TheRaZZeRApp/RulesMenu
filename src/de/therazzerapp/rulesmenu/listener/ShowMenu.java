@@ -1,7 +1,7 @@
-package com.therazzerapp.rulesmenu.listener;
+package de.therazzerapp.rulesmenu.listener;
 
-import com.therazzerapp.rulesmenu.Menu;
-import com.therazzerapp.rulesmenu.RulesMenu;
+import de.therazzerapp.rulesmenu.Menu;
+import de.therazzerapp.rulesmenu.RulesMenu;
 import net.canarymod.Canary;
 import net.canarymod.api.GameMode;
 import net.canarymod.hook.HookHandler;

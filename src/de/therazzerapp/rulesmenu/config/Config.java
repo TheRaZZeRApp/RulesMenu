@@ -1,4 +1,4 @@
-package com.therazzerapp.rulesmenu.config;
+package de.therazzerapp.rulesmenu.config;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;

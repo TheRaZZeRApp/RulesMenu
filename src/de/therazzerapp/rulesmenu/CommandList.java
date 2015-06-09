@@ -1,6 +1,6 @@
-package com.therazzerapp.rulesmenu;
+package de.therazzerapp.rulesmenu;
 
-import com.therazzerapp.rulesmenu.commands.*;
+import de.therazzerapp.rulesmenu.commands.*;
 import net.canarymod.chat.MessageReceiver;
 import net.canarymod.commandsys.Command;
 import net.canarymod.commandsys.CommandListener;
@@ -21,7 +21,7 @@ public class CommandList implements CommandListener{
     static {
         cmds[0] = new Accept();
         cmds[1] = new Decline();
-        cmds[2] = new com.therazzerapp.rulesmenu.commands.RulesMenu();
+        cmds[2] = new de.therazzerapp.rulesmenu.commands.RulesMenu();
     }
 
     @Command(aliases = {"rulesmenu"},

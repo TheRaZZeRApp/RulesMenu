@@ -1,6 +1,6 @@
-package com.therazzerapp.rulesmenu.listener;
+package de.therazzerapp.rulesmenu.listener;
 
-import com.therazzerapp.rulesmenu.RulesMenu;
+import de.therazzerapp.rulesmenu.RulesMenu;
 import net.canarymod.Canary;
 import net.canarymod.api.entity.living.humanoid.Player;
 import net.canarymod.api.factory.ChatComponentFactory;
@@ -10,7 +10,6 @@ import net.canarymod.hook.player.DisconnectionHook;
 import net.canarymod.hook.player.KickHook;
 import net.canarymod.plugin.PluginListener;
 import net.canarymod.plugin.Priority;
-import net.visualillusionsent.utils.LocaleHelper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
