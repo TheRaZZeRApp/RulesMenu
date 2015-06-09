@@ -32,6 +32,7 @@ public class ShowMenu implements PluginListener {
 
         if(RulesMenu.settings.isSpectator()){
             hook.getPlayer().setMode(GameMode.SPECTATOR);
+            hook.getPlayer().teleportTo(hook.getPlayer().getSpawnPosition());
         }
 
         if(RulesMenu.settings.isChatMuted()){

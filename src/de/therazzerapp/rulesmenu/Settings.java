@@ -20,6 +20,7 @@ public class Settings {
     private final boolean kickOnDecline;
     private final boolean banOnDecline;
     private final boolean isSpectator;
+    private final boolean teleportToSpawn;
 
     public Settings(JsonObject root) {
         this.maxRules = root.getAsJsonPrimitive("maxRules").getAsInt();
@@ -30,6 +31,7 @@ public class Settings {
         this.kickOnDecline = root.getAsJsonPrimitive("kickOnDecline").getAsBoolean();
         this.banOnDecline = root.getAsJsonPrimitive("banOnDecline").getAsBoolean();
         this.isSpectator = root.getAsJsonPrimitive("isSpectator").getAsBoolean();
+        this.teleportToSpawn = root.getAsJsonPrimitive("teleportToSpawnOnAccept").getAsBoolean();
     }
 
     public int getMaxRules() {
@@ -62,5 +64,9 @@ public class Settings {
 
     public boolean isSpectator() {
         return isSpectator;
+    }
+
+    public boolean isTeleportToSpawn() {
+        return teleportToSpawn;
     }
 }

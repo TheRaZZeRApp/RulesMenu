@@ -7,6 +7,7 @@ import de.therazzerapp.rulesmenu.listener.Freezer;
 import de.therazzerapp.rulesmenu.listener.ShowMenu;
 import net.canarymod.Canary;
 import net.canarymod.commandsys.CommandDependencyException;
+import net.canarymod.exceptions.PluginLoadFailedException;
 import net.canarymod.plugin.Plugin;
 
 import java.io.File;
@@ -23,11 +24,19 @@ import java.io.IOException;
 
 public class RulesMenu extends Plugin {
 
-    private static Translator translator = new Translator();;
+    private static Translator translator;
     public static Settings settings;
 
     @Override
     public boolean enable() {
+
+        try{
+            translator = new Translator();
+            getLogman().info("Language files loaded!");
+        } catch (NullPointerException ex){
+            getLogman().error("No language files found, language is set to default (en_US)");
+            translator = new Translator("en_US");
+        }
 
         File configDir = new File("./config/RulesMenu/");
         if(!configDir.exists()){

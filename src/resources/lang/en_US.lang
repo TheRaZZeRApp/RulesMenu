@@ -1,0 +1,13 @@
+decline=- §cDecline
+decline_tooltip=Click to §creject §fthe rules!
+accept=- §aAccept
+accept_tooltip=Click to §aaccept §fthe rules!
+headline=Rule menu
+kickmessage=Rules not accepted!
+banmessage=Rules not accepted!
+error_alreadyaccepted=§c[§fRules Menu§c] §fYou have already accepted the rules!
+rules_accepted=§a[§fRules Menu§a] §fYou have successfully accepted the rules!
+chatsilent_on=§aChat on!
+chatsilent_off=§cChat off!
+rule_0=§4No language files found!
+rule_0_tooltip=Move language files to "./lang/RulesMenu/"

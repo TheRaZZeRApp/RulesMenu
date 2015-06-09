@@ -25,7 +25,7 @@ public class Freezer implements PluginListener{
 
     @HookHandler
     public void onTeleport(TeleportHook hook){
-        if(!hook.getPlayer().hasPermission("rulesmenu.accepted")){
+        if(!hook.getPlayer().hasPermission("rulesmenu.accepted") && !(hook.getDestination() == hook.getPlayer().getSpawnPosition())){
             hook.setCanceled();
         }
     }

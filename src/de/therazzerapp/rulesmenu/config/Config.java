@@ -58,6 +58,7 @@ public class Config {
         root.addProperty("isSpectator",true);
         root.addProperty("kickOnDecline",true);
         root.addProperty("banOnDecline",false);
+        root.addProperty("teleportToSpawnOnAccept",true);
 
         saveJsonFile(file,root);
     }
