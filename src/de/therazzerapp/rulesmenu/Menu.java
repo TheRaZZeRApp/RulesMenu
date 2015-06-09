@@ -48,7 +48,6 @@ public class Menu {
         if(!acceptToolTip.equals("")){
             cCAccept.getChatStyle().setChatHoverEvent(f.newHoverEvent(f.getShowText(),f.newChatComponent(acceptToolTip)));
         }
-
         ChatComponent cCDecline = f.newChatComponent(RulesMenu.getTranslator().localeTranslate("decline",player.getLocale()));
         cCDecline.getChatStyle().setChatClickEvent(f.newClickEvent(f.getRunCommand(),"/rulesmenu decline"));
 

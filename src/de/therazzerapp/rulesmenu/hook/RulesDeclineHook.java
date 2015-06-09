@@ -16,7 +16,7 @@ public class RulesDeclineHook extends Hook {
     public RulesDeclineHook(Player player, boolean banned, String reason) {
         this.player = player;
         this.banned = banned;
-        this.reason = !reason.equals("") ? reason : null;
+        this.reason = !reason.isEmpty() ? reason : null;
     }
 
     public RulesDeclineHook(Player player, boolean kicked) {
